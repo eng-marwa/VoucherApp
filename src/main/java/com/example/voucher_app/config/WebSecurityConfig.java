@@ -17,8 +17,8 @@ public class WebSecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();
         httpSecurity.authorizeHttpRequests()
-                .requestMatchers(HttpMethod.GET, "/api/voucher/find/**").hasAnyRole("")
-                .requestMatchers(HttpMethod.POST, "/api/voucher/create").hasRole("")
+                .requestMatchers(HttpMethod.GET, "/api/voucher/find/**").hasAnyRole("USER","ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/voucher/create").hasRole("ADMIN")
                 .and().csrf().disable();
         return httpSecurity.build();
     }
