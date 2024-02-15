@@ -1,4 +1,4 @@
-package com.example.VoucherApp;
+package com.example.voucher_app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
