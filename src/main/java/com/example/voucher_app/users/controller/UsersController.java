@@ -16,8 +16,8 @@ public class UsersController {
     private UserService userService;
 
     @PostMapping("/create")
-    Users createUser(@RequestBody UserDTO users){
-        return userService.saveUserWithRoles(users);
+    Users createUser(@RequestBody Users users){
+        return userService.createUser(users);
     }
 
     @GetMapping("/find/{email}")

@@ -25,7 +25,7 @@ public class UserService {
     @Autowired
     private ModelMapper modelMapper;
 
-     Users createUser(Users users){
+     public Users createUser(Users users){
         return userRepository.save(users);
     }
     @Transactional
@@ -40,8 +40,6 @@ public class UserService {
 
     @Transactional
     public Users saveUserWithRoles(UserDTO userDTO) {
-        // Fetch and attach Roles entities
-
         Set<Roles> roles = new HashSet<>();
         for (RoleDTO roleDTO : userDTO.getUserRoles()) {
             Optional<Roles> roleOptional = roleRepository.findById(roleDTO.getRoleId());

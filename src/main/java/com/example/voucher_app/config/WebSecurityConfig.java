@@ -19,7 +19,7 @@ public class WebSecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
             httpSecurity.httpBasic();
-            httpSecurity.authorizeHttpRequests().requestMatchers(HttpMethod.GET, "/api/users/all").hasRole("ADMIN")
+            httpSecurity.authorizeHttpRequests().requestMatchers(HttpMethod.GET, "/api/users/all","/api/users/create").hasRole("ADMIN")
                     .requestMatchers(HttpMethod.GET, "/api/voucher/find/**").hasAnyRole("USER","ADMIN")
                     .requestMatchers(HttpMethod.POST, "/api/voucher/create").hasRole("ADMIN")
                     .and().csrf().disable();
