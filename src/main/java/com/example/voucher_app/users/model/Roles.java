@@ -13,17 +13,19 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 public class Roles implements GrantedAuthority {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "role_id")
     private int roleId;
     @Column
     private String name;
-    @ManyToMany(mappedBy = "userRoles")
-    private Set<Users> users;
+//    @ManyToMany(mappedBy = "userRoles")
+//    private Set<Users> users;
 
     @Override
     public String getAuthority() {
+        System.out.println("---------"+name);
         return name;
     }
 }
